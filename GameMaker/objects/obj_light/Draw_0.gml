@@ -8,10 +8,9 @@ draw_clear(c_black);
 var p = instance_find(obj_player, 0);
 
 if (p != noone) {
-    var length = 180;
-    var spread = 50;
+    var length = 70;
+    var spread = 30;
     var steps = 40;
-
     var ox = 0;
     var oy = 0;
 
@@ -34,7 +33,7 @@ if (p != noone) {
         var t = i / steps;
         var dist = length * t;
         var width = spread * t;
-        var alpha = 0.04 * (1 - t);
+        var alpha = 0.20 * (1 - t);
 
         var px = (p.x + ox) + lengthdir_x(dist, p.smooth_dir);
         var py = (p.y + oy) + lengthdir_y(dist, p.smooth_dir);
