@@ -7,7 +7,8 @@ draw_clear(c_black);
 
 var p = instance_find(obj_player, 0);
 
-if (p != noone) {
+if (p != noone && p.flashlight_on) {
+
     var length = 70;
     var spread = 30;
     var steps = 40;

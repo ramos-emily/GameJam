@@ -51,4 +51,9 @@ if (hsp != 0 || vsp != 0) {
     dir = point_direction(0, 0, hsp, vsp);
 }
 
+if (keyboard_check_pressed(ord("E"))) {
+    flashlight_on = !flashlight_on;
+}
+
+
 smooth_dir = lerp(smooth_dir, dir, 0.15);
