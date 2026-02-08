@@ -1,10 +1,12 @@
 hsp = 0;
 vsp = 0;
 
-if (keyboard_check(ord("W")) || keyboard_check(vk_up))    vsp = -spd;
-if (keyboard_check(ord("S")) || keyboard_check(vk_down))  vsp = spd;
-if (keyboard_check(ord("A")) || keyboard_check(vk_left))  hsp = -spd;
-if (keyboard_check(ord("D")) || keyboard_check(vk_right)) hsp = spd;
+if (can_move) {
+    if (keyboard_check(ord("W")) || keyboard_check(vk_up))    vsp = -spd;
+    if (keyboard_check(ord("S")) || keyboard_check(vk_down))  vsp = spd;
+    if (keyboard_check(ord("A")) || keyboard_check(vk_left))  hsp = -spd;
+    if (keyboard_check(ord("D")) || keyboard_check(vk_right)) hsp = spd;
+}
 
 if (hsp != 0 && vsp != 0) {
     var diag_factor = sqrt(0.5);
@@ -49,6 +51,7 @@ if (hsp != 0 || vsp != 0) {
 // ===== FLASHLIGHT =====
 if (keyboard_check_pressed(ord("E"))) {
     flashlight_on = !flashlight_on;
+	audio_play_sound(snd_flashlight, 5, false);
 }
 
 var margin = 2;
@@ -58,6 +61,7 @@ if (room == rm_Beach) {
     if (y <= margin) {
         global.spawn_dir = "down";
         room_goto(rm_Crossroad);
+		audio_stop_sound(snd_beach);
     }
 }
 
@@ -101,44 +105,7 @@ if (room == rm_Statue) {
     }
 }
 
-// ===== FLOWERS COOLDOWN =====
-if (flowers_cooldown > 0) {
-    flowers_cooldown--;
-}
 
-// ===== MAZE LOGIC =====
-if (room == rm_Maze) {
-    if (maze_respawn_pending) {
-        maze_respawn_timer++;
-        if (maze_respawn_timer >= room_speed * 2) {
-            maze_reset();
-        }
-    }
-
-    if (maze_state == 2 && !maze_respawn_pending) {
-        if (flashlight_on) {
-            dialogue_start(["You have to obey me."]);
-            maze_respawn_pending = true;
-            maze_respawn_timer = 0;
-            maze_state = 4;
-        }
-        if (!flashlight_on) {
-            dialogue_start(["Behind you."]);
-            maze_state = 3;
-        }
-    }
-
-    if (maze_state == 3 && !maze_respawn_pending) {
-        if (flashlight_on && !maze_last_flashlight) {
-            dialogue_start(["You have to obey me."]);
-            maze_respawn_pending = true;
-            maze_respawn_timer = 0;
-            maze_state = 4;
-        }
-    }
-
-    maze_last_flashlight = flashlight_on;
-}
 
 // ===== ITENS COLETADOS =====
 if (inv_wood == 1 && inv_sail == 1 && inv_rope == 1 && !global.items_collected) {
@@ -171,7 +138,7 @@ if (boat != noone && global.dialogue_beach_boat && keyboard_check_pressed(vk_ent
 if (global.boat_fixed) {
     global.boat_delay_timer++;
     if (global.boat_delay_timer >= room_speed * 3) {
-        room_goto(rm_final);
+        room_goto(rm_credits);
     }
 }
 

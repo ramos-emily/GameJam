@@ -37,13 +37,12 @@ if (p != noone && distance_to_object(obj_player) < 16) {
                 p.inv_rope = 1;
 
                 dialogue_start([
-                    "There it is. The rope.",
+                    "There it is. You can open your eyes now.",
                     "Funny, isn't it?",
                     "A tool to bind things together...",
                     "Or to end things forever.",
-                    "Do you remember the knot you tied that night, Daniel?",
-                    "It was perfect.",
-                    "Just like this one."
+                    "Just like this one.",
+					"Perfect."
                 ]);
             break;
         }

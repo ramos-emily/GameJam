@@ -40,8 +40,6 @@ if (room == rm_Crossroad && !global.dialogue_crossroad) {
 if (room == rm_Maze) {
     spawn_x = x;
     spawn_y = y;
-
-    maze_reset();
 }
 
 
@@ -58,4 +56,32 @@ if (room == rm_Flowers) {
 	 global.dialogue_flowers = true;
 }
 
+// ===== GERENCIADOR DE ÁUDIO (MUSIC MANAGER) =====
+
+// 1. Salas "Escuras" (Crossroad, Maze, Flowers, Statue)
+// Adicione aqui qualquer outra sala que deva tocar a música de suspense
+if (room == rm_Crossroad || room == rm_Maze || room == rm_Flowers || room == rm_Statue) {
+
+    // Se a música de suspense NÃO estiver tocando, inicie ela.
+    if (!audio_is_playing(snd_crossroads)) {
+        
+        // Garante que a música da praia pare
+        audio_stop_sound(snd_beach); 
+        
+        // Inicia o suspense em loop (true) com prioridade 10
+        audio_play_sound(snd_crossroads, 10, true);
+    }
+}
+
+// 2. Sala da Praia (Música diferente)
+else if (room == rm_Beach) {
+
+    // Para a música de suspense imediatamente
+    audio_stop_sound(snd_crossroads);
+
+    // Se a música da praia não estiver tocando, inicie
+    if (!audio_is_playing(snd_beach)) {
+        audio_play_sound(snd_beach, 10, true);
+    }
+}
 

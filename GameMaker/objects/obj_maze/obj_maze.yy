@@ -8,8 +8,8 @@
   "name":"obj_maze",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"rm_maze",
+    "path":"folders/Objects/rm_maze.yy",
   },
   "parentObjectId":null,
   "persistent":false,
