@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"maze_reset",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"maze_reset",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

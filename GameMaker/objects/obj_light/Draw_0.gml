@@ -10,41 +10,62 @@ if (room != rm_Beach) {
 
     var p = instance_find(obj_player, 0);
 
-    if (p != noone && p.flashlight_on) {
+    if (p != noone) {
 
-        var length = 70;
-        var spread = 30;
-        var steps = 40;
-        var ox = 0;
-        var oy = 0;
+        if (p.flashlight_on) {
 
-        if (p.smooth_dir > 45 && p.smooth_dir < 135) { 
-            oy = 8; 
+            var length = 70;
+            var spread = 30;
+            var steps = 40;
+            var ox = 0;
+            var oy = 0;
+
+            if (p.smooth_dir > 45 && p.smooth_dir < 135) { 
+                oy = 8; 
+            }
+            else if (p.smooth_dir > 225 && p.smooth_dir < 315) { 
+                oy = -8; 
+            }
+            else if (p.smooth_dir <= 45 || p.smooth_dir >= 315) { 
+                ox = 6; 
+                oy = -10; 
+            }
+            else if (p.smooth_dir >= 135 && p.smooth_dir <= 225) { 
+                ox = -6; 
+                oy = -10; 
+            }
+
+            for (var i = 0; i < steps; i++) {
+                var t = i / steps;
+                var dist = length * t;
+                var width = spread * t;
+                var alpha = 0.60 * (1 - t);
+
+                var px = (p.x + ox) + lengthdir_x(dist, p.smooth_dir);
+                var py = (p.y + oy) + lengthdir_y(dist, p.smooth_dir);
+
+                draw_set_alpha(alpha);
+                draw_set_color(c_white);
+                draw_circle(px, py, width, false);
+            }
         }
-        else if (p.smooth_dir > 225 && p.smooth_dir < 315) { 
-            oy = -8; 
-        }
-        else if (p.smooth_dir <= 45 || p.smooth_dir >= 315) { 
-            ox = 6; 
-            oy = -10; 
-        }
-        else if (p.smooth_dir >= 135 && p.smooth_dir <= 225) { 
-            ox = -6; 
-            oy = -10; 
-        }
 
-        for (var i = 0; i < steps; i++) {
-            var t = i / steps;
-            var dist = length * t;
-            var width = spread * t;
-            var alpha = 0.60 * (1 - t);
+        else {
 
-            var px = (p.x + ox) + lengthdir_x(dist, p.smooth_dir);
-            var py = (p.y + oy) + lengthdir_y(dist, p.smooth_dir);
+            var radius = 20; 
+            var steps = 20;
 
-            draw_set_alpha(alpha);
-            draw_set_color(c_white);
-            draw_circle(px, py, width, false);
+            for (var i = 0; i < steps; i++) {
+                var t = i / steps;
+                var r = radius * t;
+                var alpha = 0.25 * (1 - t);
+
+                draw_set_alpha(alpha);
+                draw_set_color(c_white);
+				var py = p.y - 10; 
+				draw_circle(p.x, py, r, false);
+
+            }
         }
     }
 

@@ -62,6 +62,7 @@
     {"id":{"name":"rm_Maze","path":"rooms/rm_Maze/rm_Maze.yy",},},
     {"id":{"name":"rm_Statue","path":"rooms/rm_Statue/rm_Statue.yy",},},
     {"id":{"name":"dialogue_start","path":"scripts/dialogue_start/dialogue_start.yy",},},
+    {"id":{"name":"maze_reset","path":"scripts/maze_reset/maze_reset.yy",},},
     {"id":{"name":"spr_backpack","path":"sprites/spr_backpack/spr_backpack.yy",},},
     {"id":{"name":"spr_barrier","path":"sprites/spr_barrier/spr_barrier.yy",},},
     {"id":{"name":"spr_beach","path":"sprites/spr_beach/spr_beach.yy",},},

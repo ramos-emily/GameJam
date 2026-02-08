@@ -33,7 +33,12 @@ if (room == rm_Crossroad && !global.dialogue_crossroad) {
     global.dialogue_crossroad = true;
 }
 
+if (room == rm_Maze) {
+    spawn_x = x;
+    spawn_y = y;
 
+    maze_reset();
+}
 
 
 if (room == rm_Flowers) {

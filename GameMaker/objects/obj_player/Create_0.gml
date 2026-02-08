@@ -28,6 +28,14 @@ global.dialogue_maze = false;
 global.dialogue_flowers = false;
 global.dialogue_beach_after_death = false;
 
+maze_state = -1;
+maze_last_flashlight = flashlight_on;
+maze_respawn_timer = 0;
+maze_respawn_pending = false;
+
+
+
+
 
 
 

@@ -12,6 +12,8 @@ if (hsp != 0 && vsp != 0) {
     vsp *= diag_factor;
 }
 
+smooth_dir = lerp(smooth_dir, dir, 0.15);
+
 x += hsp;
 y += vsp;
 
@@ -109,6 +111,55 @@ if (flowers_cooldown > 0) {
     flowers_cooldown--;
 }
 
+if (room == rm_Maze) {
 
+    // ===============================
+    // RESPAWN COM DELAY (2 segundos)
+    // ===============================
+    if (maze_respawn_pending) {
+        maze_respawn_timer++;
 
-smooth_dir = lerp(smooth_dir, dir, 0.15);
+        if (maze_respawn_timer >= room_speed * 2) {
+            maze_reset();
+        }
+    }
+
+    // ===============================
+    // ESTADO 2 -> decisão principal
+    // ===============================
+    if (maze_state == 2 && !maze_respawn_pending) {
+
+        // ainda com lanterna ligada
+        if (flashlight_on) {
+            dialogue_start(["Você precisa me obedecer!"]);
+
+            maze_respawn_pending = true;
+            maze_respawn_timer = 0;
+            maze_state = 4;
+        }
+
+        // desligou a lanterna
+        if (!flashlight_on) {
+            dialogue_start(["Atrás de você."]);
+            maze_state = 3;
+        }
+    }
+
+    // ===============================
+    // ESTADO 3 -> obedeceu, mas pode errar depois
+    // ===============================
+    if (maze_state == 3 && !maze_respawn_pending) {
+
+        // ligou de novo a lanterna
+        if (flashlight_on && !maze_last_flashlight) {
+            dialogue_start(["Você precisa me obedecer!"]);
+
+            maze_respawn_pending = true;
+            maze_respawn_timer = 0;
+            maze_state = 4;
+        }
+    }
+
+    maze_last_flashlight = flashlight_on;
+}
+
