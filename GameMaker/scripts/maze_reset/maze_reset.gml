@@ -8,7 +8,7 @@ function maze_reset() {
     maze_respawn_timer = 0;
     maze_respawn_pending = false;
 
-    dialogue_start(["Desligue sua lanterna. Aperte a tecla [E]"]);
+    dialogue_start(["Turn off the flashlight. Press the [E] key."]);
 
     alarm[1] = room_speed * 1.5;
 }

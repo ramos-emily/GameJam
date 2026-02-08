@@ -1,7 +1,7 @@
 if (room == rm_Maze) {
     dialogue_start([
-        "Desligue. Agora.",
-        "Aqui, deixa que eu te ajudo."
+        "Turn. It. Off.",
+        "Here, let me help you."
     ]);
 
     maze_state = 2;

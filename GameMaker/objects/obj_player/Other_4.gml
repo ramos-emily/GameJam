@@ -7,7 +7,11 @@ switch (global.spawn_dir) {
 
     case "down":
         x = room_width / 2;
-        y = room_height - 20;
+        if (room == rm_Beach) {
+            y = room_height * 0.60; 
+        } else {
+            y = room_height - 20; 
+        }
         break;
 
     case "left":
@@ -24,10 +28,10 @@ switch (global.spawn_dir) {
 if (room == rm_Crossroad && !global.dialogue_crossroad) {
     dialogue_start([
         "...Daniel?",
-        "O que você está fazendo aqui?",
-        "Sereias? Que jeito idiota de perder seu barco.",
-        "Tanto faz. Já que você está aqui, temos bastante tempo para conversar.",
-        "Cuidado com a escuridão. Você não sabe o que se esconde nela."
+        "What are you doing here?",
+        "Sirens? What a stupid way to lose your boat.",
+        "Whatever. Since you are here, we have plenty of time to talk.",
+        "Mind the dark. You don't know what hides in it."
     ]);
 
     global.dialogue_crossroad = true;
@@ -47,8 +51,8 @@ if (room == rm_Flowers) {
     flowers_kill_pending = false;
 
     dialogue_start([
-        "Não se mova.",
-        "Cuidado onde pisa. As flores. Elas são minhas."
+        "Don't move.",
+        "Watch your step. The flowers. they are mine."
     ]);
 	
 	 global.dialogue_flowers = true;

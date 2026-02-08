@@ -12,20 +12,20 @@ switch (other.flowers_steps) {
 
     case 1:
         dialogue_start([
-            "Eu pedi para você não pisar nas flores."
+            "I asked you not to step on the flowers."
         ]);
         break;
 
     case 2:
         dialogue_start([
-            "Você está forçando a barra. Fique longe das MINHAS flores."
+            "You are pushing it. Stay away from MY flowers."
         ]);
         break;
 
 	case 3:
 	    dialogue_start([
-	        "Tudo bem. Faça do seu jeito então. Eu avisei.",
-			"Agora você se junta a elas."
+	        "Fine. Have it your way then. I warned you.",
+			"Now you join them."
 	    ]);
 		global.dialogue_beach_after_death = true;
 

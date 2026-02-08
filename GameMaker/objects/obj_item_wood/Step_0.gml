@@ -8,14 +8,14 @@ if (p != noone && distance_to_object(obj_player) < 16) {
                 p.inv_wood = 1;
 
                 dialogue_start([
-                    "Ei, Daniel.",
-                    "Por que você matou sua esposa?",
-                    "Quer dizer, eu entendo.",
-                    "Você disse para ela ficar longe do seu dinheiro.",
-                    "Você só estava tentando proteger sua filha.",
-                    "Sofia tinha um vício enorme em jogos de azar...",
-                    "Mas eu não esperava que você desistisse dela tão cedo.",
-                    "Principalmente depois que ela te salvou daquilo."
+                    "Hey, Daniel.",
+                    "Why did you kill your wife?",
+                    "I mean, I get it.",
+                    "You told her to stay away from your money.",
+                    "You were just trying to protect your daughter.",
+                    "Sofia had a huge gambling addiction...",
+                    "But I didn't expect you to give up on her so soon.",
+                    "Especially after she saved you from that."
                 ]);
             break;
 
@@ -23,13 +23,13 @@ if (p != noone && distance_to_object(obj_player) < 16) {
                 p.inv_sail = 1;
 
                 dialogue_start([
-                    "Daniel, você não está cansado?",
-                    "Trabalha, trabalha, bebe, trabalha...",
-                    "Talvez você queira passar o resto dos seus dias aqui comigo.",
-                    "Rachel vai conseguir se virar.",
-                    "Ela sempre conseguiu.",
-                    "Ela te ama.",
-                    "E você ama ela... eu acho."
+                    "Daniel, aren't you tired?",
+                    "Work, work, drink, work...",
+                    "Maybe you want to spend the rest of your days here with me.",
+                    "Rachel will manage.",
+                    "She's managed all this time.",
+                    "She loves you.",
+                    "And you love her... I guess."
                 ]);
             break;
 
@@ -37,13 +37,13 @@ if (p != noone && distance_to_object(obj_player) < 16) {
                 p.inv_rope = 1;
 
                 dialogue_start([
-                    "Lá está. A corda.",
-                    "Engraçado, não é?",
-                    "Uma ferramenta para unir coisas...",
-                    "Ou para acabar com tudo.",
-                    "Você lembra do nó que fez naquela noite, Daniel?",
-                    "Ele era perfeito.",
-                    "Assim como este."
+                    "There it is. The rope.",
+                    "Funny, isn't it?",
+                    "A tool to bind things together...",
+                    "Or to end things forever.",
+                    "Do you remember the knot you tied that night, Daniel?",
+                    "It was perfect.",
+                    "Just like this one."
                 ]);
             break;
         }
