@@ -98,12 +98,25 @@ if (room == rm_Flowers) {
     }
 }
 
+// ===== STATUE =====
 if (room == rm_Statue) {
+
+    // Ao entrar na cena, dispara o diálogo uma vez
+    if (!global.dialogue_statue) {
+        dialogue_start([
+            "Don't take your eyes off him, he's coming after you...",
+            "Be careful!"
+        ]);
+        global.dialogue_statue = true;
+    }
+
+    // Saída da statue de volta para Crossroad
     if (y >= room_height - margin) {
         global.spawn_dir = "up";
         room_goto(rm_Crossroad);
     }
 }
+
 
 
 

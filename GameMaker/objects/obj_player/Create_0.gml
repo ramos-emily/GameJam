@@ -32,5 +32,6 @@ global.boat_fixed = false;
 global.dialogue_beach_boat = false;
 global.boat_delay_timer = 0;
 global.all_items_collected = false;
+global.dialogue_statue = false;
 
 can_move = true;
