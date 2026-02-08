@@ -10,4 +10,9 @@ function dialogue_start(_lines) {
     d.current_index = 0;
     d.timer = 0;
     d.active = true;
+
+    if (array_length(_lines) > 0) {
+        array_push(d.visible_lines, _lines[0]);
+        d.current_index = 1;
+    }
 }

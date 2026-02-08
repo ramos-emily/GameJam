@@ -21,7 +21,7 @@ switch (global.spawn_dir) {
         break;
 }
 
-if (room == rm_Crossroad) {
+if (room == rm_Crossroad && !global.dialogue_crossroad) {
     dialogue_start([
         "...Daniel?",
         "O que você está fazendo aqui?",
@@ -29,4 +29,24 @@ if (room == rm_Crossroad) {
         "Tanto faz. Já que você está aqui, temos bastante tempo para conversar.",
         "Cuidado com a escuridão. Você não sabe o que se esconde nela."
     ]);
+
+    global.dialogue_crossroad = true;
 }
+
+
+
+
+if (room == rm_Flowers) {
+    flowers_steps = 0;
+    flowers_dead = false;
+    flowers_kill_pending = false;
+
+    dialogue_start([
+        "Não se mova.",
+        "Cuidado onde pisa. As flores. Elas são minhas."
+    ]);
+	
+	 global.dialogue_flowers = true;
+}
+
+

@@ -105,5 +105,10 @@ if (room == rm_Statue) {
     }
 }
 
+if (flowers_cooldown > 0) {
+    flowers_cooldown--;
+}
+
+
 
 smooth_dir = lerp(smooth_dir, dir, 0.15);
