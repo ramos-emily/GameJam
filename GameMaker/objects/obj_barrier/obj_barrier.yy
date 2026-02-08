@@ -34,5 +34,5 @@
     "path":"sprites/spr_barrier/spr_barrier.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

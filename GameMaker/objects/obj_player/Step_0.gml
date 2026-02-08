@@ -17,12 +17,6 @@ y += vsp;
 
 if (hsp == 0 && vsp == 0) {
     switch(sprite_index) {
-        case spr_player_walk_up_left:
-            sprite_index = spr_player_idle_up_left; 
-            break;
-        case spr_player_walk_up_right:
-            sprite_index = spr_player_idle_up_right; 
-            break;
         case spr_player_walk_left:
             sprite_index = spr_player_idle_left;     
             break;
@@ -37,9 +31,7 @@ if (hsp == 0 && vsp == 0) {
             break;
     }
 } else {
-    if (hsp < 0 && vsp < 0) sprite_index = spr_player_walk_up_left;
-    else if (hsp > 0 && vsp < 0) sprite_index = spr_player_walk_up_right;
-    else if (vsp > 0 && hsp < 0) sprite_index = spr_player_walk_left;
+    if (vsp > 0 && hsp < 0) sprite_index = spr_player_walk_left;
     else if (vsp > 0 && hsp > 0) sprite_index = spr_player_walk_right;
     else if (vsp > 0) sprite_index = spr_player_walk_down;
     else if (vsp < 0) sprite_index = spr_player_walk_up;
@@ -55,7 +47,6 @@ if (keyboard_check_pressed(ord("E"))) {
     flashlight_on = !flashlight_on;
 }
 
-
 var margin = 2;
 
 // ===== BEACH =====
@@ -69,25 +60,21 @@ if (room == rm_Beach) {
 // ===== CROSSROAD =====
 if (room == rm_Crossroad) {
 
-    // cima -> STATUE
     if (y <= margin) {
         global.spawn_dir = "down";
         room_goto(rm_Statue);
     }
 
-    // baixo -> BEACH
     if (y >= room_height - margin) {
         global.spawn_dir = "up";
         room_goto(rm_Beach);
     }
 
-    // esquerda -> MAZE
     if (x <= margin) {
         global.spawn_dir = "right";
         room_goto(rm_Maze);
     }
 
-    // direita -> FLOWERS
     if (x >= room_width - margin) {
         global.spawn_dir = "left";
         room_goto(rm_Flowers);
@@ -96,7 +83,6 @@ if (room == rm_Crossroad) {
 
 // ===== MAZE =====
 if (room == rm_Maze) {
-    // direita -> CROSSROAD
     if (x >= room_width - margin) {
         global.spawn_dir = "left";
         room_goto(rm_Crossroad);
@@ -105,7 +91,6 @@ if (room == rm_Maze) {
 
 // ===== FLOWERS =====
 if (room == rm_Flowers) {
-    // esquerda -> CROSSROAD
     if (x <= margin) {
         global.spawn_dir = "right";
         room_goto(rm_Crossroad);
@@ -114,14 +99,11 @@ if (room == rm_Flowers) {
 
 // ===== STATUE =====
 if (room == rm_Statue) {
-    // baixo -> CROSSROAD
     if (y >= room_height - margin) {
         global.spawn_dir = "up";
         room_goto(rm_Crossroad);
     }
 }
-
-
 
 
 smooth_dir = lerp(smooth_dir, dir, 0.15);

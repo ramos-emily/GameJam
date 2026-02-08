@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_barrier",
-    "path":"sprites/spr_barrier/spr_barrier.yy",
+    "name":"spr_item_wood",
+    "path":"sprites/spr_item_wood/spr_item_wood.yy",
   },
   "spriteMaskId":null,
   "visible":true,

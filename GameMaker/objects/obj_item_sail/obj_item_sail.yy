@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_barrier",
-    "path":"sprites/spr_barrier/spr_barrier.yy",
+    "name":"spr_item_sail",
+    "path":"sprites/spr_item_sail/spr_item_sail.yy",
   },
   "spriteMaskId":null,
   "visible":true,
