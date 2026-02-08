@@ -56,4 +56,72 @@ if (keyboard_check_pressed(ord("E"))) {
 }
 
 
+var margin = 2;
+
+// ===== BEACH =====
+if (room == rm_Beach) {
+    if (y <= margin) {
+        global.spawn_dir = "down";
+        room_goto(rm_Crossroad);
+    }
+}
+
+// ===== CROSSROAD =====
+if (room == rm_Crossroad) {
+
+    // cima -> STATUE
+    if (y <= margin) {
+        global.spawn_dir = "down";
+        room_goto(rm_Statue);
+    }
+
+    // baixo -> BEACH
+    if (y >= room_height - margin) {
+        global.spawn_dir = "up";
+        room_goto(rm_Beach);
+    }
+
+    // esquerda -> MAZE
+    if (x <= margin) {
+        global.spawn_dir = "right";
+        room_goto(rm_Maze);
+    }
+
+    // direita -> FLOWERS
+    if (x >= room_width - margin) {
+        global.spawn_dir = "left";
+        room_goto(rm_Flowers);
+    }
+}
+
+// ===== MAZE =====
+if (room == rm_Maze) {
+    // direita -> CROSSROAD
+    if (x >= room_width - margin) {
+        global.spawn_dir = "left";
+        room_goto(rm_Crossroad);
+    }
+}
+
+// ===== FLOWERS =====
+if (room == rm_Flowers) {
+    // esquerda -> CROSSROAD
+    if (x <= margin) {
+        global.spawn_dir = "right";
+        room_goto(rm_Crossroad);
+    }
+}
+
+// ===== STATUE =====
+if (room == rm_Statue) {
+    // baixo -> CROSSROAD
+    if (y >= room_height - margin) {
+        global.spawn_dir = "up";
+        room_goto(rm_Crossroad);
+    }
+}
+
+
+
+
 smooth_dir = lerp(smooth_dir, dir, 0.15);

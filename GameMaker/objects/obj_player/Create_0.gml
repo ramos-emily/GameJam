@@ -7,7 +7,12 @@ hsp = 0;
 vsp = 0; 
 last_hsp = 0;
 last_vsp = 0;
-
+persistent = true;
 inv_wood  = 0; 
 inv_sail  = 0; 
 inv_rope  = 0; 
+spawn_x = x;
+spawn_y = y;
+global.spawn_dir = "down";
+
+
