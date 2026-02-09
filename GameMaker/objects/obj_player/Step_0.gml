@@ -139,7 +139,7 @@ if (room == rm_Beach && global.items_collected && !global.boat_fixed && !global.
 
 // ===== INTERAÇÃO COM O BARCO =====
 var boat = instance_nearest(x, y, obj_boat);
-if (boat != noone && global.dialogue_beach_boat && keyboard_check_pressed(vk_enter)) {
+if (boat != noone && global.dialogue_beach_boat && keyboard_check_pressed(vk_backspace)) {
     boat.sprite_index = spr_boat; 
     boat.image_index = 0;
     boat.image_speed = 0.2;
